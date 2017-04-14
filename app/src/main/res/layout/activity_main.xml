@@ -1,8 +1,18 @@
 <?xml version="1.0" encoding="utf-8"?>
-<GridLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical" >
+    android:orientation="vertical"
+    android:padding="@dimen/spacing_medium"
+    android:fitsSystemWindows="true">
+
+<LinearLayout
+    android:id="@+id/topMostLayout"
+    android:layout_height="match_parent"
+    android:layout_width="match_parent"
+    android:orientation="vertical">
+
 
     <LinearLayout
         android:id="@+id/toplinear"
@@ -17,20 +27,54 @@
             android:layout_height="wrap_content"
             android:src="@mipmap/ic_launcher" />
 
+        <ImageView
+            android:id="@+id/image2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@mipmap/image2" />
+
     </LinearLayout>
 
     <LinearLayout
         android:id="@+id/bottomlinear"
-        android:layout_width="fill_parent"
-        android:layout_height="170dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+    <LinearLayout
+        android:id="@+id/drop1"
+        android:layout_width="60dp"
+        android:layout_height="60dp"
+        android:orientation="horizontal"
         android:background="@drawable/normal_shape" >
 
-        <TextView
-            android:id="@+id/text"
-            android:layout_width="100dp"
-            android:layout_height="100dp"
-            android:text="Drag the image and drop it here..." />
 
     </LinearLayout>
 
-</GridLayout>
+        <LinearLayout
+            android:id="@+id/drop2"
+            android:layout_marginLeft="10dp"
+            android:layout_width="60dp"
+            android:layout_height="60dp"
+            android:orientation="horizontal"
+            android:background="@drawable/normal_shape" >
+
+
+        </LinearLayout>
+
+    </LinearLayout>
+</LinearLayout>
+
+    <Button
+        android:id="@+id/resetView"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:layout_marginRight="@dimen/spacing_tiny"
+        android:layout_weight="0.5"
+        android:layout_alignParentBottom="true"
+        android:background="@drawable/generic_button_background"
+        android:text="CHECK ANSWER"
+        android:textColor="@android:color/white" />
+
+
+</RelativeLayout>
