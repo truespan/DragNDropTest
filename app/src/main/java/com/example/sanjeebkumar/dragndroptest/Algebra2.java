@@ -1,44 +1,41 @@
 package com.example.sanjeebkumar.dragndroptest;
 
-import android.media.MediaPlayer;
-import android.provider.ContactsContract;
-import android.support.v7.app.AppCompatActivity;
-
-
-        import android.content.ClipData;
-        import android.content.ClipDescription;
+import android.content.ClipData;
+import android.content.ClipDescription;
+import android.content.Intent;
 import android.graphics.drawable.Drawable;
-        import android.os.Bundle;
-        import android.view.DragEvent;
+import android.media.MediaPlayer;
+import android.os.Bundle;
+import android.support.design.widget.FloatingActionButton;
+import android.support.design.widget.Snackbar;
+import android.support.v7.app.AppCompatActivity;
+import android.support.v7.widget.Toolbar;
+import android.view.DragEvent;
 import android.view.Gravity;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.MotionEvent;
-        import android.view.View;
-        import android.view.View.DragShadowBuilder;
-        import android.view.View.OnDragListener;
+import android.view.View;
 import android.view.ViewGroup;
 import android.view.animation.AccelerateInterpolator;
-        import android.view.animation.Animation;
-        import android.view.animation.TranslateAnimation;
-        import android.widget.Button;
-        import android.widget.ImageView;
-        import android.widget.LinearLayout;
-        import android.widget.Toast;
+import android.view.animation.Animation;
+import android.view.animation.TranslateAnimation;
+import android.widget.Button;
+import android.widget.ImageView;
+import android.widget.LinearLayout;
+import android.widget.Toast;
 
 import com.plattysoft.leonids.ParticleSystem;
 
 import static android.view.ViewGroup.LayoutParams.MATCH_PARENT;
-import static com.example.sanjeebkumar.dragndroptest.R.id.bsquare;
 import static com.example.sanjeebkumar.dragndroptest.R.id.drop1;
-        import static com.example.sanjeebkumar.dragndroptest.R.id.drop2;
+import static com.example.sanjeebkumar.dragndroptest.R.id.drop2;
 import static com.example.sanjeebkumar.dragndroptest.R.id.drop3;
 import static com.example.sanjeebkumar.dragndroptest.R.id.drop4;
 import static com.example.sanjeebkumar.dragndroptest.R.id.drop5;
 import static com.example.sanjeebkumar.dragndroptest.R.id.toplinear;
 
-
-public class MainActivity extends AppCompatActivity {
+public class Algebra2 extends AppCompatActivity {
 
     private ImageView aSquare;
     private ImageView bSquare;
@@ -51,12 +48,12 @@ public class MainActivity extends AppCompatActivity {
     private LinearLayout linearDropThree;
     private LinearLayout linearDropFour;
     private LinearLayout linearDropFive;
-    private static final String IMAGEVIEW_TAG1 = "The Android Logo";
-    private static final String IMAGEVIEW_TAG2 = "The Android Logo";
-    private static final String IMAGEVIEW_TAG3 = "The Android Logo";
-    private static final String IMAGEVIEW_TAG4 = "The Android Logo";
-    private static final String IMAGEVIEW_TAG5 = "The Android Logo";
-    private static final String IMAGEVIEW_TAG6 = "The Android Logo";
+    private static final String IMAGEVIEW_TAG7 = "The Android Logo";
+    private static final String IMAGEVIEW_TAG8 = "The Android Logo";
+    private static final String IMAGEVIEW_TAG9 = "The Android Logo";
+    private static final String IMAGEVIEW_TAG10 = "The Android Logo";
+    private static final String IMAGEVIEW_TAG11 = "The Android Logo";
+    private static final String IMAGEVIEW_TAG12 = "The Android Logo";
     private boolean isDropOneCorrect;
     private boolean isDropTwoCorrect;
     private boolean isDropThreeCorrect;
@@ -67,13 +64,23 @@ public class MainActivity extends AppCompatActivity {
     private String audioFileName = "applause.mp3";
 
 
-    /** Called when the activity is first created. */
-
     @Override
-    public void onCreate(Bundle savedInstanceState) {
+    protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_algebra2);
+        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
+        setSupportActionBar(toolbar);
 
-        setContentView(R.layout.activity_main);
+
+        FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
+        fab.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
+                        .setAction("Action", null).show();
+            }
+        });
+
         aSquare = (ImageView)findViewById(R.id.asquare);
         bSquare = (ImageView)findViewById(R.id.bsquare);
         plus = (ImageView) findViewById(R.id.plus);
@@ -92,31 +99,30 @@ public class MainActivity extends AppCompatActivity {
         myTopLinearLayout = (LinearLayout) findViewById(R.id.toplinear);
 
         // Sets the tag
-        aSquare.setTag(IMAGEVIEW_TAG1);
-        bSquare.setTag(IMAGEVIEW_TAG2);
-        plus.setTag(IMAGEVIEW_TAG3);
-        plusTwo.setTag(IMAGEVIEW_TAG4);
-        twoAb.setTag(IMAGEVIEW_TAG5);
-        minus.setTag(IMAGEVIEW_TAG6);
+        aSquare.setTag(IMAGEVIEW_TAG7);
+        bSquare.setTag(IMAGEVIEW_TAG8);
+        plus.setTag(IMAGEVIEW_TAG9);
+        plusTwo.setTag(IMAGEVIEW_TAG10);
+        twoAb.setTag(IMAGEVIEW_TAG11);
+        minus.setTag(IMAGEVIEW_TAG12);
 
         // set the listener to the dragging data
-        aSquare.setOnTouchListener(new MyClickListener());
-        bSquare.setOnTouchListener(new MyClickListener());
-        plus.setOnTouchListener(new MyClickListener());
-        plusTwo.setOnTouchListener(new MyClickListener());
-        twoAb.setOnTouchListener(new MyClickListener());
-        minus.setOnTouchListener(new MyClickListener());
+        aSquare.setOnTouchListener(new Algebra2.MyClickListener());
+        bSquare.setOnTouchListener(new Algebra2.MyClickListener());
+        plus.setOnTouchListener(new Algebra2.MyClickListener());
+        plusTwo.setOnTouchListener(new Algebra2.MyClickListener());
+        twoAb.setOnTouchListener(new Algebra2.MyClickListener());
+        minus.setOnTouchListener(new Algebra2.MyClickListener());
 
 
-        findViewById(toplinear).setOnDragListener(new MyDragListener());
-        findViewById(drop1).setOnDragListener(new MyDragListener());
-        findViewById(drop2).setOnDragListener(new MyDragListener());
-        findViewById(drop3).setOnDragListener(new MyDragListener());
-        findViewById(drop4).setOnDragListener(new MyDragListener());
-        findViewById(drop5).setOnDragListener(new MyDragListener());
+        findViewById(toplinear).setOnDragListener(new Algebra2.MyDragListener());
+        findViewById(drop1).setOnDragListener(new Algebra2.MyDragListener());
+        findViewById(drop2).setOnDragListener(new Algebra2.MyDragListener());
+        findViewById(drop3).setOnDragListener(new Algebra2.MyDragListener());
+        findViewById(drop4).setOnDragListener(new Algebra2.MyDragListener());
+        findViewById(drop5).setOnDragListener(new Algebra2.MyDragListener());
 
     }
-
 
 
     private final class MyClickListener implements View.OnTouchListener {
@@ -129,7 +135,7 @@ public class MainActivity extends AppCompatActivity {
 
             String[] mimeTypes = { ClipDescription.MIMETYPE_TEXT_PLAIN };
             ClipData data = new ClipData(view.getTag().toString(), mimeTypes, item);
-            DragShadowBuilder shadowBuilder = new View.DragShadowBuilder(view);
+            View.DragShadowBuilder shadowBuilder = new View.DragShadowBuilder(view);
 
 
             view.startDrag( data, //data to be dragged
@@ -143,7 +149,7 @@ public class MainActivity extends AppCompatActivity {
         }
     }
 
-    class MyDragListener implements OnDragListener {
+    class MyDragListener implements View.OnDragListener {
         Drawable normalShape = getResources().getDrawable(R.drawable.normal_shape);
         Drawable targetShape = getResources().getDrawable(R.drawable.target_shape);
         Drawable afterDrop = getResources().getDrawable(R.drawable.after_drop);
@@ -298,11 +304,11 @@ public class MainActivity extends AppCompatActivity {
                             isDropTwoCorrect=false;
 
                             if (isCorrectSolution()) {
-                                Toast.makeText(MainActivity.this,"Correct",Toast.LENGTH_SHORT).show();
+                                Toast.makeText(Algebra2.this,"Correct",Toast.LENGTH_SHORT).show();
                                 showFireWorks(v);
-                               playAudio();
+                                playAudio();
 
-                            } else Toast.makeText(MainActivity.this,"Try again",Toast.LENGTH_SHORT).show();
+                            } else Toast.makeText(Algebra2.this,"Try again",Toast.LENGTH_SHORT).show();
                         }
                     });
 
@@ -353,43 +359,6 @@ public class MainActivity extends AppCompatActivity {
         return true;
 
 
-
-        /*for (int i=0; i < linearDropOne.getChildCount(); i++) {
-            View view = linearDropOne.getChildAt(i);
-
-            if (view.equals(findViewById(R.id.asquare)))
-                isDropOneCorrect = true;
-        }
-
-        for (int i=0; i < linearDropTwo.getChildCount(); i++) {
-            View view = linearDropTwo.getChildAt(i);
-
-            if (view.equals(findViewById(R.id.plus)) || view.equals(findViewById(R.id.plus2)))
-                isDropTwoCorrect = true;
-        }
-
-        for (int i=0; i < linearDropThree.getChildCount(); i++) {
-            View view = linearDropThree.getChildAt(i);
-
-            if (view.equals(findViewById(R.id.bsquare)))
-                isDropThreeCorrect = true;
-        }
-
-        for (int i = 0; i < linearDropFour.getChildCount(); i++) {
-            View view = linearDropFour.getChildAt(i);
-
-            if (view.equals(findViewById(R.id.plus)) || view.equals(findViewById(R.id.plus2)))
-            isDropFourCorrect = true;
-        }
-
-        for (int i = 0; i < linearDropFive.getChildCount(); i++) {
-            View view = linearDropFive.getChildAt(i);
-
-            if (view.equals(findViewById(R.id.twoab)))
-                isDropFiveCorrect = true;
-        }*/
-
-
     }
 
     private void animateDragToStart(View initialView, float fromX, float fromY) {
@@ -414,9 +383,13 @@ public class MainActivity extends AppCompatActivity {
     public boolean onOptionsItemSelected(MenuItem item) {
         switch (item.getItemId()) {
             case R.id.action_next:
-                Toast.makeText(getApplicationContext(),"Item 1 Selected",Toast.LENGTH_LONG).show();
+                //Toast.makeText(getApplicationContext(),"Item 1 Selected",Toast.LENGTH_LONG).show();
+                /*Intent intent = new Intent(MainActivity.this, Algebra2.class);
+                MainActivity.this.startActivity(intent);*/
             default:
                 return super.onOptionsItemSelected(item);
         }
     }
+
 }
+

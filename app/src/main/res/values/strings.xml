@@ -1,3 +1,5 @@
 <resources>
     <string name="app_name">DragNDropTest</string>
+    <string name="title_activity_algebra2">Algebra2</string>
+    <string name="title_activity_base">BaseActivity</string>
 </resources>
